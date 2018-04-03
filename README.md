@@ -53,6 +53,10 @@ order = Trustvox::Store.new.push_order({
                       photos_urls: ["http://store.fox.com/donut.png"],
                     }]
                   })
+
+order.inspect
+
+{:status=>201, :data=>{"tags"=>[], "order_id"=>1, "client"=>{"tags"=>[], "first_name"=>"Homer", "last_name"=>"Simpson", "email"=>"homer@fox.com"}, "delivery_date"=>"2018-04-03", "items"=>[{"id"=>"1", "name"=>"Donut", "url"=>"http://www.fox.com/donut", "price"=>"2.99", "tags"=>[]}]}}
 ```
 
 ## Contributing
