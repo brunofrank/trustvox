@@ -18,41 +18,12 @@ module Trustvox
     # Call order api
     # @param order_data
     def push_order(order_data)
-      body = {
-        order_id: nil,
-        delivery_date: nil,
-        client: {},
-        items: [],
-        tags: []
-      }.merge(order_data)
-
-      body[:items] = order_data[:items].map do |item|
-        {
-          id: nil,
-          url: nil,
-          name: nil,
-          price: nil,
-          photos_urls: [],
-          tags: [],
-          extra: {}
-        }.merge(item)
-      end
-
-      body[:client] = {
-        first_name: nil,
-        last_name: nil,
-        email: nil,
-        tags: []
-      }.merge(order_data[:client])
-
+      body = Utils.build_push_order_data(order_data)
       auth_by_store_token!
       response = self.class.post("/stores/#{Config.store_id}/orders", { body: body.to_json })
       data = JSON.parse(response.body) rescue nil
 
-      {
-        status: response.code,
-        data: data,
-      }
+      { status: response.code, data: data }
     end
 
     # Call store lookup api

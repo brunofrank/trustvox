@@ -7,7 +7,7 @@ module Trustvox
 
     headers 'Accept': 'application/vnd.trustvox.com; version=1',
             'Content-Type': 'application/json'
-
+debug_output $stdout
     def initialize
       if Config.is_on_staging?
         self.class.base_uri 'http://staging.trustvox.com.br/api'

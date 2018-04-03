@@ -1,4 +1,5 @@
 require "trustvox/version"
+require "trustvox/utils"
 require "trustvox/config"
 require "trustvox/base"
 require "trustvox/store"
