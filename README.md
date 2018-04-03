@@ -26,7 +26,7 @@ Trustvox::Config.store_token = 'STORE TOKEN'
 Trustvox::Config.store_id = 'STORE ID'
 ```
 
-Or througth ENV vars.
+Or with ENV vars
 
 ```sh
 TRUSTVOX_ACCESS_TOKEN='PLATFORM TOKEN'
