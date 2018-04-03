@@ -18,7 +18,42 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Set your credentials
+
+```ruby
+Trustvox::Config.token = 'PLATFORM TOKEN'
+Trustvox::Config.store_token = 'STORE TOKEN'
+Trustvox::Config.store_id = 'STORE ID'
+```
+
+Or througth ENV vars.
+
+```sh
+TRUSTVOX_ACCESS_TOKEN='PLATFORM TOKEN'
+TRUSTVOX_STORE_TOKEN='STORE TOKEN'
+TRUSTVOX_STORE_ID='STORE ID'
+``
+
+Push order information.
+
+```ruby
+order = Trustvox::Store.new.push_order({
+                    order_id: 1,
+                    delivery_date: DateTime.now.to_s,
+                    client:  {
+                      first_name: 'Homer',
+                      last_name: 'Simpson',
+                      email: 'homer@fox.com',
+                    },
+                    items: [{
+                      id: 1,
+                      url: 'http://www.fox.com/donut',
+                      name: 'Donut',
+                      price: 2.99,
+                      photos_urls: ["http://store.fox.com/donut.png"],
+                    }]
+                  })
+```
 
 ## Contributing
 
